@@ -88,7 +88,7 @@ t_color				color_parse(char *line)
 	return (color);
 }
 
-t_resol				resolution_parse(char *line)
+t_resol				resolution_parse(char *line, t_cub3d *cub3d)
 {
 	int				i;
 	char			**result;
@@ -104,7 +104,7 @@ t_resol				resolution_parse(char *line)
 	resolution.heigth = ft_atoi(result[2]);
 	if (!result[3])
 	{
-		check_error_resolution(&resolution);
+		check_error_resolution(&resolution, cub3d);
 		free_double_tab(result, 3);
 	}
 	else

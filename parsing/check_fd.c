@@ -82,6 +82,8 @@ t_map		lenght_map(int fd)
 	while (get_next_line(fd, &line) && line[0] != '\0')
 	{
 		lenght_line_actual = ft_strlen(line);
+		if (lenght_line_actual < 3)
+			ft_error_div(4);
 		if (lenght_line_actual > mapstruct.la)
 			mapstruct.la = lenght_line_actual;
 		mapstruct.lo++;
@@ -103,7 +105,7 @@ void		ft_read_fd(int fd, t_cub3d *cub3d)
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (line[0] == 'R')
-			cub3d->resol = resolution_parse(line);
+			cub3d->resol = resolution_parse(line, cub3d);
 		else if (line[0] == 'N' || line[0] == 'S' || line[0] == 'W'
 			|| line[0] == 'E')
 			define_texture(cub3d, line);

@@ -204,7 +204,7 @@ typedef struct	s_cub3d
 t_map			check_fd (int fd);
 t_map			lenght_map(int fd);
 void			ft_read_fd(int fd, t_cub3d *cub3d);
-t_resol			resolution_parse(char *line);
+t_resol			resolution_parse(char *line, t_cub3d *cub3d);
 void			define_texture(t_cub3d *cub3d, char *line);
 t_texture		texture_parse(char *line);
 void			define_color(t_cub3d *cub3d, char *line);
@@ -218,7 +218,7 @@ void			ft_error_map(int index, char a, int b, int c);
 void			check_path(char *path, char *s);
 void			check_color(t_color color);
 void			check_color2(char *buff, char c);
-void			check_error_resolution(t_resol *resolution);
+void			check_error_resolution(t_resol *resolution, t_cub3d *c);
 void			ft_error_fd(int index, char *s);
 void			ft_error_color_fd(int index, char c);
 void			ft_error_div(int index);

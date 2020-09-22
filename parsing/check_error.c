@@ -42,14 +42,19 @@ void		check_path(char *path, char *s)
 	free(temp);
 }
 
-void		check_error_resolution(t_resol *resolution)
+void		check_error_resolution(t_resol *resolution, t_cub3d *c)
 {
-	if (!resolution->width || !resolution->heigth)
-		ft_error_fd(1, " ");
-	if (resolution->width > 2560)
-		resolution->width = 2560;
-	if (resolution->heigth > 1440)
-		resolution->heigth = 1440;
+	int		max_x;
+	int		max_y;
+
+	c->mlx_ptr = mlx_init();
+	mlx_get_screen_size(c->mlx_ptr, &max_x, &max_y);
+	if (resolution->width > max_x)
+		resolution->width = max_x;
+	if (resolution->heigth > max_y)
+		resolution->heigth = max_y;
+	if (resolution->width < 0 || resolution->heigth < 0)
+		ft_error_fd(1, "xx");
 }
 
 void		check_color(t_color color)

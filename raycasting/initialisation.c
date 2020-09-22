@@ -33,7 +33,6 @@ static int	ft_play_game(t_cub3d *cub)
 
 void		start_game(t_cub3d *cub3d)
 {
-	cub3d->mlx_ptr = mlx_init();
 	cub3d->win_ptr = mlx_new_window(cub3d->mlx_ptr, cub3d->resol.width,
 		cub3d->resol.heigth, "cub3d");
 	save_original_map(cub3d);
