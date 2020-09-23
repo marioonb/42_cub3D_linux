@@ -14,7 +14,7 @@ MLX = -L./minilibX/ ./minilibX/libmlx.a -lm -lmlx -lX11 -lXext -lbsd
 
 NAME = Cub3D
 
-SRCS    =       cub3d.c\
+SRCS    =               cub3d.c\
                         parsing/build_map.c\
                         raycasting/keyboard_control.c\
                         parsing/check_map.c\
@@ -57,4 +57,4 @@ fclean : clean
 	rm -rf $(NAME)
 	rm -rf save.bmp
 
-re : fclean all
+re : fclean allld

@@ -47,14 +47,16 @@ void		check_error_resolution(t_resol *resolution, t_cub3d *c)
 	int		max_x;
 	int		max_y;
 
+	if (!resolution->width || !resolution->heigth)
+		ft_error_fd(1, " ");
 	c->mlx_ptr = mlx_init();
+	if (resolution->width < 1 || resolution->heigth < 1)
+		ft_error_fd(1, "xx");
 	mlx_get_screen_size(c->mlx_ptr, &max_x, &max_y);
 	if (resolution->width > max_x)
 		resolution->width = max_x;
 	if (resolution->heigth > max_y)
 		resolution->heigth = max_y;
-	if (resolution->width < 0 || resolution->heigth < 0)
-		ft_error_fd(1, "xx");
 }
 
 void		check_color(t_color color)
